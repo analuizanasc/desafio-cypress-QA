@@ -1,0 +1,15 @@
+[
+    {
+        "nome": "Bug Pro Max",
+        "preco": 99,
+        "descricao": "O melhor spray anti-bug do mercado. Cada spray elimina um bug de produção",
+        "quantidade": 10,
+        "imagem": "bugProMax.jpg"
+    },
+    {
+        "nome": "Manual do QA",
+        "preco": 10,
+        "descricao": "O melhor manual para QAs do mercado",
+        "quantidade": 100
+    }
+]
