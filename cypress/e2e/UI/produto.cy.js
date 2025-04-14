@@ -34,5 +34,37 @@ describe('Cadastro de produto', () => {
       cy.contains(produto.imagem);
     });
   })
+
+  //(POSSÍVEL) BUG ENCONTRADO
+  it.only('deve cadastrar produto com mesmo nome após correção', function () {
+    const produtoBase = this.produtos[0]
+    const produto = {
+      ...produtoBase,
+      nome: `${produtoBase.nome} - ${faker.string.alphanumeric(3)}`
+    }
+
+    cy.interceptarReqCadastroProduto()
+    cy.irParaCadastroDeProduto()
+    cy.cadastrarProduto(
+      produto.nome,
+      produto.preco,
+      produto.descricao,
+      produto.quantidade,
+      produto.imagem)
+    cy.esperarReqCadastroProduto()
+    cy.irParaHome()
+    cy.irParaCadastroDeProduto()
+    cy.cadastrarProduto(
+      produto.nome,
+      produto.preco,
+      produto.descricao,
+      produto.quantidade,
+      produto.imagem)
+    cy.get('[data-testid="nome"]').type('- Novo nome')
+    cy.get('[data-testid="cadastarProdutos"]').click()
+
+    //BUG: MENSAGENS DE ERRO NÃO CONDIZEM COM O ESTADO ATUAL DO FORMULÁRIO
+    cy.location('pathname', { timeout: 15000 }).should('eq', '/admin/listarprodutos')
+  });
 })
 
