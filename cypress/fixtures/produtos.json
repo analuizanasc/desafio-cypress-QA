@@ -1,9 +1,9 @@
 [
     {
         "nome": "Bug Pro Max",
-        "preco": 99,
+        "preco": 9,
         "descricao": "O melhor spray anti-bug do mercado. Cada spray elimina um bug de produção",
-        "quantidade": 10,
+        "quantidade": 1,
         "imagem": "bugProMax.jpg"
     },
     {

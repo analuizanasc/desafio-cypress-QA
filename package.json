@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "pretest": "del /q allure-results\\*",
+    "test": "cypress run",
+    "allure:report": "allure generate --clean allure-results -o allure-report",
+    "allure:open": "allure open allure-report"
   },
   "keywords": [],
   "author": "",
@@ -11,6 +14,7 @@
   "description": "",
   "devDependencies": {
     "@faker-js/faker": "^9.6.0",
+    "allure-cypress": "^3.2.1",
     "cypress": "^14.3.0"
   }
 }
