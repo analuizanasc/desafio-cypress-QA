@@ -35,8 +35,8 @@ A arquitetura do projeto segue o padrão Page Object Model (POM) com adaptaçõe
 ├── cypress/
 │   ├── downloads/           # Arquivos baixados durante os testes
 │   ├── e2e/                 # Arquivos de teste
-|   |   ├── API/             # Testes da API
-|   |   ├── UI/              # Testes da User Interface (UI)
+│   │   ├── API/             # Testes da API
+│   │   ├── UI/              # Testes da User Interface (UI)
 │   ├── evidencias/          # Evidencias visuais dos testes que falharam (imagens)
 │   ├── fixtures/            # Dados estáticos para mock
 │   ├── pages/               # Page Objects
