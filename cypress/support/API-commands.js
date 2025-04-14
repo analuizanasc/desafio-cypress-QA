@@ -1,3 +1,5 @@
+import { faker } from '@faker-js/faker'
+
 Cypress.Commands.add('criarUsuarioAPI', (nome, email, password, administrador = true) => {
     return cy.request({
         method: 'POST',
@@ -10,7 +12,7 @@ Cypress.Commands.add('criarUsuarioAPI', (nome, email, password, administrador = 
             nome,
             email,
             password,
-            administrador: administrador.toString(),
+            administrador: administrador.toString()
         },
         failOnStatusCode: false,
     })
@@ -37,4 +39,40 @@ Cypress.Commands.add('validarHeadersSeguros', (headers) => {
     expect(headers).to.have.property('x-frame-options', 'SAMEORIGIN')
     expect(headers).to.have.property('x-xss-protection', '1; mode=block')
     expect(headers).to.have.property('x-content-type-options', 'nosniff')
+})
+
+Cypress.Commands.add('tokenAdm', () => {
+    const usuario = {
+        nome: faker.person.fullName(),
+        email: faker.internet.email(),
+        senha: 'Teste123'
+    }
+
+    cy.criarUsuarioAPI(usuario.nome, usuario.email, usuario.senha)
+    cy.loginAPI(usuario.email, usuario.senha).then((res) => {
+        cy.wrap(res.body.authorization).as('tokenAdm')
+    })
+
+})
+
+Cypress.Commands.add('cadastrarProdutoAPI', function (token) {
+    const produtoBase = this.produtos[0]
+    const produto = {
+        ...produtoBase,
+        nome: `${produtoBase.nome} - ${faker.string.alphanumeric(3)}`
+    }
+
+    cy.request({
+        method: 'POST',
+        url: 'https://serverest.dev/produtos',
+        headers: {
+            Authorization: token.toString()
+        },
+        body: {
+            nome: produto.nome,
+            preco: produto.preco,
+            descricao: produto.descricao,
+            quantidade: produto.quantidade
+        }
+    })
 })

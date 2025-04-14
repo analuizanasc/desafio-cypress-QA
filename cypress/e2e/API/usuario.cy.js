@@ -9,6 +9,9 @@ function gerarUsuario() {
 }
 
 describe('Usuário - API', () => {
+    beforeEach(() => {
+        cy.fixture('produtos').as('produtos')
+    })
 
     it('deve cadastrar um usuário com sucesso', () => {
         const usuario = gerarUsuario()
@@ -37,7 +40,7 @@ describe('Usuário - API', () => {
             expect(res.status).to.eq(200);
             expect(res.body).to.have.property('message', 'Login realizado com sucesso');
             expect(res.body).to.have.property('authorization')
-                .and.to.be.a('string');
+                .and.to.be.a('string')
         })
     })
 })
