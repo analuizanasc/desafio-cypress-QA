@@ -30,7 +30,7 @@ describe('Cadastro de produto', () => {
       cy.contains(produto.descricao);
       cy.contains(produto.quantidade);
       cy.contains(produto.imagem);
-    });
+    })
   })
 
   //(POSSÍVEL) BUG ENCONTRADO
@@ -62,6 +62,6 @@ describe('Cadastro de produto', () => {
 
     //BUG: MENSAGENS DE ERRO NÃO CONDIZEM COM O ESTADO ATUAL DO FORMULÁRIO
     cy.location('pathname', { timeout: 15000 }).should('eq', '/admin/listarprodutos')
-  });
+  })
 })
 

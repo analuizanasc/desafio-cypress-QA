@@ -11,8 +11,8 @@ module.exports = defineConfig({
   e2e: {
     baseUrl: 'https://front.serverest.dev',
     setupNodeEvents(on, config) {
-      allureCypress(on, config);
+      allureCypress(on, config)
       return config;
-    },
-  },
-});
+    }
+  }
+})

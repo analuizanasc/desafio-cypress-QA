@@ -11,11 +11,11 @@ function gerarUsuario() {
 describe('Cadastro de usuário', () => {
     beforeEach(() => {
         cy.irParaCadastroUsuario()
-    });
+    })
 
     it('deve estar na tela de cadastro', () => {
         cy.url().should('include', '/cadastrarusuarios')
-    });
+    })
 
     it('deve cadastrar usuário Adm com sucesso', () => {
         const usuario = gerarUsuario()
@@ -26,7 +26,7 @@ describe('Cadastro de usuário', () => {
             .should('be.visible')
             .invoke('text')
             .should('include', 'Cadastro realizado com sucesso')
-    });
+    })
 
     it('deve cadastrar usuário com sucesso', () => {
         const usuario = gerarUsuario()
@@ -37,7 +37,7 @@ describe('Cadastro de usuário', () => {
             .should('be.visible')
             .invoke('text')
             .should('include', 'Cadastro realizado com sucesso')
-    });
+    })
 
     it('deve cadastrar usuário com mesmos dados', () => {
         const usuario = gerarUsuario()
@@ -51,7 +51,7 @@ describe('Cadastro de usuário', () => {
             .should('be.visible')
             .invoke('text')
             .should('include', 'Este email já está sendo usado')
-    });
+    })
 
     it('deve cadastrar usuário sem email', () => {
         const usuario = gerarUsuario()
@@ -96,4 +96,4 @@ describe('Cadastro de usuário', () => {
 
         cy.url().should('include', '/home')
     })
-});
+})

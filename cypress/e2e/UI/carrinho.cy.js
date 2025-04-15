@@ -17,5 +17,5 @@ describe('Lista de compras', () => {
 
         cy.url().should('include', '/minhaListaDeProdutos')
         cy.get('.card-body').should('have.length', 2)
-    });
-});
+    })
+})

@@ -44,7 +44,7 @@ A arquitetura do projeto segue o padrão Page Object Model (POM) com adaptaçõe
 │   │   ├── API-commands.js  # Comandos customizados do Cypress destinados aos testes da API
 │   │   ├── commands.js      # Comandos customizados do Cypress estinados aos testes da UI
 │   │   └── e2e.js           # Configurações globais para os testes
-│   └── videos               # Evidencias visuais dos testes que falharam (vídeos)
+│   └── videos               # Evidencias visuais dos testes (vídeos)
 ├── cypress.config.js        # Configuração principal do Cypress
 └── README.md                # Este arquivo
 ```
