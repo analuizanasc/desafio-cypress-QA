@@ -28,22 +28,7 @@ jobs:
       run: |
         npm install
 
-    # limpa pastas allure-results 
-    - name: Clean allure-results folder
-      run: |
-        rm -rf allure-results/*
-
     # roda testes
     - name: Run Cypress tests
       run: |
         npm run test
-
-    # gera report
-    - name: Generate Allure Report
-      run: |
-        npm run allure:report
-
-    # abre report
-    - name: Open Allure Report (opcional)
-      run: |
-        npm run allure:open
