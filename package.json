@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "pretest": "del /q allure-results\\*",
+    "allure:pretest": "del /q allure-results\\*",
     "test": "cypress run",
     "allure:report": "allure generate --clean allure-results -o allure-report",
     "allure:open": "allure open allure-report"

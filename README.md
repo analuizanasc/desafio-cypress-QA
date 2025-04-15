@@ -100,18 +100,24 @@ Os testes foram desenvolvidos utilizando o Cypress e estão localizados no diret
 
 Para gerar relatórios dos testes com o Allure, siga os passos abaixo:
 
-1. Execute os testes e gere os resultados:
+1. limpe a pasta allure-results:
+
+    ```bash
+    npm run allure:pretest
+    ```
+
+2. Execute os testes e gere os resultados:
 
     ```bash
     npm run test:allure
     ```
 
-2. Gere o relatório Allure:
+3. Gere o relatório Allure:
 
     ```bash
     npm run allure:generate
     ```
-3. Abra o relatório em seu navegador:
+4. Abra o relatório em seu navegador:
 
     ```bash
     npm run allure:open

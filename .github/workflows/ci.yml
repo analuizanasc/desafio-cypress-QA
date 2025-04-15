@@ -1,0 +1,49 @@
+name: Testes Cypress - CI
+
+on:
+  push:
+    branches:
+      - main  
+  pull_request:
+    branches:
+      - main 
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Checkout do repositório
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    # Configuração do Node.js
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16'
+
+    # instala dependencias
+    - name: Install dependencies
+      run: |
+        npm install
+
+    # limpa pastas allure-results 
+    - name: Clean allure-results folder
+      run: |
+        rm -rf allure-results/*
+
+    # roda testes
+    - name: Run Cypress tests
+      run: |
+        npm run test
+
+    # gera report
+    - name: Generate Allure Report
+      run: |
+        npm run allure:report
+
+    # abre report
+    - name: Open Allure Report (opcional)
+      run: |
+        npm run allure:open
