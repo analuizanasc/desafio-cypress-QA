@@ -3,16 +3,17 @@
 ## 📋 Índice
 
 - [Sobre o Projeto](#sobre-o-projeto)
-- [Arquitetura do Projeto](#-arquitetura-do-projeto)
+- [Arquitetura do Projeto](#arquitetura-do-projeto)
 - [Tecnologias Utilizadas](#tecnologias-utilizadas)
 - [Pré-requisitos](#pré-requisitos)
 - [Instalação](#instalação)
 - [Como Usar](#como-usar)
 - [Testes](#testes)
+- [GitHub Action](#github-action)
 - [Contribuindo](#contribuindo)
 - [Licença](#licença)
 - [Autor](#autor)
-
+  
 ## 📖 Sobre o Projeto
 
 Este projeto tem como foco a automação de testes para a aplicação web e API da [ServeRest](https://serverest.dev/), utilizando o framework [Cypress](https://www.cypress.io/). Desenvolvido como parte de um processo seletivo para a posição de Quality Assurance (QA), com o objetivo de demonstrar habilidades práticas em testes automatizados. Serão avaliados os seguintes critérios:
@@ -32,7 +33,8 @@ A arquitetura do projeto segue o padrão Page Object Model (POM) com adaptaçõe
 - **Rastreabilidade**: Organização clara das evidências de teste
 
 ```bash
-├── cypress/
+├── github/                  # Pasta destinada a configuração de uma CI
+├── cypress/                 # Arquivos relacionado ao Cypress
 │   ├── downloads/           # Arquivos baixados durante os testes
 │   ├── e2e/                 # Arquivos de teste
 │   │   ├── API/             # Testes da API
@@ -122,6 +124,15 @@ Para gerar relatórios dos testes com o Allure, siga os passos abaixo:
     ```bash
     npm run allure:open
     ```
+## ⚙️ GitHub Actions - Integração Contínua (CI)
+
+Este repositório utiliza **GitHub Actions** para automatizar a execução dos testes E2E com **Cypress** a cada push ou pull request na branch `main`.
+O workflow está localizado em `.github/workflows/` e realiza as seguintes etapas:
+
+- Faz o checkout do repositório.
+- Configura o ambiente com Node.js.
+- Instala as dependências do projeto.
+- Executa os testes automatizados com Cypress.
 
 ## 🤝 Contribuindo
 
