@@ -1,19 +1,17 @@
 import { faker } from '@faker-js/faker'
 
 describe('Cadastro de produto', () => {
-  const usuario = {
-    nome: faker.person.fullName(),
-    email: faker.internet.email(),
-    senha: 'Teste123'
-  }
-
-  before(() => {
-    cy.cadastrarUsuario(usuario.nome, usuario.email, usuario.senha)
-    cy.esperarReqCadastroUsuarioAdm()
-  })
 
   beforeEach(() => {
+    const usuario = {
+      nome: faker.person.fullName(),
+      email: faker.internet.email(),
+      senha: 'Teste123'
+    }
+
     cy.fixture('produtos').as('produtos')
+    cy.cadastrarUsuario(usuario.nome, usuario.email, usuario.senha)
+    cy.esperarReqCadastroUsuarioAdm()
   })
 
   it('deve cadastrar produto com sucesso', function () {
@@ -36,14 +34,13 @@ describe('Cadastro de produto', () => {
   })
 
   //(POSSÍVEL) BUG ENCONTRADO
-  it.only('deve cadastrar produto com mesmo nome após correção', function () {
+  it('deve cadastrar produto com mesmo nome após correção', function () {
     const produtoBase = this.produtos[0]
     const produto = {
       ...produtoBase,
       nome: `${produtoBase.nome} - ${faker.string.alphanumeric(3)}`
     }
 
-    cy.interceptarReqCadastroProduto()
     cy.irParaCadastroDeProduto()
     cy.cadastrarProduto(
       produto.nome,
