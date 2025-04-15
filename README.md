@@ -62,6 +62,7 @@ As seguintes ferramentas e tecnologias foram utilizadas no desenvolvimento do pr
 - **JavaScript**: Linguagem de programação utilizada para escrever os testes.
 - **Node.js**: Ambiente de execução para o JavaScript.
 - **Allure Reports**: Ferramenta para geração de relatórios de testes.
+- **[GitHub Actions](https://docs.github.com/pt/actions)**: Plataforma de Integração Contínua (CI) usada para automatizar a execução dos testes.
 
 <a id="pré-requisitos"></a>
 ## ⚙️ Pré-requisitos
@@ -71,7 +72,6 @@ Antes de iniciar, certifique-se de ter instalado em sua máquina:
 - **[Node.js](https://nodejs.org/en/)**: Versão recomendada 14.x ou superior.
 - **[npm](https://www.npmjs.com/)**: Gerenciador de pacotes do Node.js.
 - **[Git](https://git-scm.com/)**: Para clonar o repositório.
-- **[GitHub Actions](https://docs.github.com/pt/actions)**: Plataforma de Integração Contínua (CI) usada para automatizar a execução dos testes.
 
 <a id="instalacao"></a>
 ## 🧰 Instalação
