@@ -6,14 +6,15 @@
 - [Arquitetura do Projeto](#arquitetura-do-projeto)
 - [Tecnologias Utilizadas](#tecnologias-utilizadas)
 - [Pré-requisitos](#pré-requisitos)
-- [Instalação](#instalação)
+- [Instalação](#instalacao)
 - [Como Usar](#como-usar)
 - [Testes](#testes)
 - [GitHub Action](#github-action)
 - [Contribuindo](#contribuindo)
-- [Licença](#licença)
+- [Licença](#licenca)
 - [Autor](#autor)
-  
+
+<a id="sobre-o-projeto"></a>  
 ## 📖 Sobre o Projeto
 
 Este projeto tem como foco a automação de testes para a aplicação web e API da [ServeRest](https://serverest.dev/), utilizando o framework [Cypress](https://www.cypress.io/). Desenvolvido como parte de um processo seletivo para a posição de Quality Assurance (QA), com o objetivo de demonstrar habilidades práticas em testes automatizados. Serão avaliados os seguintes critérios:
@@ -25,6 +26,7 @@ Este projeto tem como foco a automação de testes para a aplicação web e API 
 - Escrita e organização dos cenários de teste
 - Qualidade e clareza nos commits
 
+<a id="arquitetura-do-projeto"></a>
 ## 🧱 Arquitetura do Projeto
 
 A arquitetura do projeto segue o padrão Page Object Model (POM) com adaptações para melhor organização dos recursos, garantindo:
@@ -51,6 +53,7 @@ A arquitetura do projeto segue o padrão Page Object Model (POM) com adaptaçõe
 └── README.md                # Este arquivo
 ```
 
+<a id="tecnologias-utilizadas"></a>
 ## 🛠️ Tecnologias Utilizadas
 
 As seguintes ferramentas e tecnologias foram utilizadas no desenvolvimento do projeto:
@@ -60,6 +63,7 @@ As seguintes ferramentas e tecnologias foram utilizadas no desenvolvimento do pr
 - **Node.js**: Ambiente de execução para o JavaScript.
 - **Allure Reports**: Ferramenta para geração de relatórios de testes.
 
+<a id="pré-requisitos"></a>
 ## ⚙️ Pré-requisitos
 
 Antes de iniciar, certifique-se de ter instalado em sua máquina:
@@ -67,7 +71,9 @@ Antes de iniciar, certifique-se de ter instalado em sua máquina:
 - **[Node.js](https://nodejs.org/en/)**: Versão recomendada 14.x ou superior.
 - **[npm](https://www.npmjs.com/)**: Gerenciador de pacotes do Node.js.
 - **[Git](https://git-scm.com/)**: Para clonar o repositório.
+- **[GitHub Actions](https://docs.github.com/pt/actions)**: Plataforma de Integração Contínua (CI) usada para automatizar a execução dos testes.
 
+<a id="instalacao"></a>
 ## 🧰 Instalação
 
 1. Clone o repositório:
@@ -87,7 +93,8 @@ Antes de iniciar, certifique-se de ter instalado em sua máquina:
     ```bash
     npm install
     ```
-
+    
+<a id="como-usar"></a>
 ## 🚀 Como Usar
 
 Após a instalação das dependências, você pode executar os testes utilizando o Cypress. Para abrir a interface gráfica do Cypress, utilize:
@@ -95,20 +102,36 @@ Após a instalação das dependências, você pode executar os testes utilizando
 ```bash
 npx cypress open
 ```
+Caso deseje rodar pelo terminal, então utiliza:
 
+```bash
+npm run test
+```
+Dessa forma, ao final poderá ver seus testes da seguinte forma:
+
+![npm run test](https://github.com/user-attachments/assets/cf5e8af7-3fe9-4d6b-a025-346a1639e46f)
+
+<a id="testes"></a>
 ## 🧪 Testes
 
-Os testes foram desenvolvidos utilizando o Cypress e estão localizados no diretório `cypress/e2e`. Eles cobrem alguns fluxos da aplicação - UI e API.
+Os testes foram desenvolvidos utilizando o Cypress e estão localizados no diretório `cypress/e2e`. Eles cobrem alguns fluxos da aplicação - UI e API. No diretório `cypress/videos` é possível encontrar os videos dos testes sendo executados, como abaixo:
+
+https://github.com/user-attachments/assets/1398dffa-6ce5-44d2-ba3e-0a1938b43e47
+
+Durante a execução dos testes também foi identificado um possível Bug. O projeto está configurado para evidenciar sempre que o teste falhar, sendo possível encontrar a evidência no diretório `cypress/evidencias`, como exemplificado abaixo:
+
+![Cadastro de produto -- deve cadastrar produto após correção de nome de produto existente (failed)](https://github.com/user-attachments/assets/a4d96b51-9fbe-4aa9-af8d-d08b4674a77a)
 
 Para gerar relatórios dos testes com o Allure, siga os passos abaixo:
 
+- ANTES DO TESTE:
 1. limpe a pasta allure-results:
-
+   
     ```bash
     npm run allure:pretest
-    ```
-
-2. Execute os testes e gere os resultados:
+    
+- DEPOIS DO TESTE:
+2. Gere os resultados:
 
     ```bash
     npm run test:allure
@@ -124,6 +147,8 @@ Para gerar relatórios dos testes com o Allure, siga os passos abaixo:
     ```bash
     npm run allure:open
     ```
+
+<a id="github-action"></a>
 ## ⚙️ GitHub Actions - Integração Contínua (CI)
 
 Este repositório utiliza **GitHub Actions** para automatizar a execução dos testes E2E com **Cypress** a cada push ou pull request na branch `main`.
@@ -134,6 +159,7 @@ O workflow está localizado em `.github/workflows/` e realiza as seguintes etapa
 - Instala as dependências do projeto.
 - Executa os testes automatizados com Cypress.
 
+<a id="contribuindo"></a>
 ## 🤝 Contribuindo
 
 Contribuições são sempre bem-vindas! Se você deseja contribuir com este projeto, siga os passos abaixo:
@@ -158,10 +184,12 @@ Contribuições são sempre bem-vindas! Se você deseja contribuir com este proj
     ```
 5. Abra um Pull Request
 
+<a id="licenca"></a>
 ## 📄 Licença
 
 Este projeto está licenciado sob a Licença MIT. Consulte o arquivo [LICENSE](LICENSE) para obter mais informações.
 
+<a id="autor"></a>
 ## 👩‍💻 Autor
 
 - **Ana Luiza Nascimento**  
